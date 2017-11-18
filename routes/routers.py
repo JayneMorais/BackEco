@@ -24,6 +24,8 @@ class ObjectIDConverter(BaseConverter):
 # Importando controller de teste
 from controllers import tree
 from controllers import user
+from controllers import insetos
+from controllers import fosseis
 import json
 
 # Flask app
@@ -49,6 +51,7 @@ def ctrlTree():
         return dumps(res)
 
 
+
 @application.route('/tree/<idtree>',  methods=['GET', 'DELETE', 'PUT', 'PATCH'])
 def getIdTree(idtree):
     if (request.method == "GET"):
@@ -68,6 +71,83 @@ def getIdTree(idtree):
 
         res = tree.addLoc(idtree, request.json)
         return dumps(res)
+
+
+"""
+----------------------------------------------------
+					FOSSEIS
+----------------------------------------------------
+"""
+
+@application.route("/fosseis", methods=['POST', 'GET'])
+def ctrlFossil():
+	if (request.method == "POST"):
+		res = fosseis.createFosseis(request.json)
+		return dumps(res)
+
+	elif (request.method == "GET"):
+		res = fosseis.listFosseis()
+		return dumps(res)
+
+
+
+@application.route('/fossil/<idfossil>',  methods=['GET', 'DELETE', 'PUT', 'PATCH'])
+def getIdFossil(idfossil):
+    if (request.method == "GET"):
+        res = fosseis.getFosseis(idfossil)
+        return dumps(res)
+
+    elif (request.method == 'DELETE'):
+        print(idfossil)
+        res = fosseis.deleteFosseis(idfossil)
+        return dumps(res)
+
+    elif (request.method == 'PUT'):
+        res = fosseis.uploadFosseis(idfossil,request.json)
+        return dumps(res)
+
+    elif (request.method == 'PATCH'):
+        res = fosseis.addLoc(idfossil, request.json)
+        return dumps(res)
+
+
+"""
+----------------------------------------------------
+					INSETO
+----------------------------------------------------
+"""
+
+@application.route("/insetos", methods=['POST', 'GET'])
+def ctrlInseto():
+	if (request.method == "POST"):
+		res = insetos.createInsetos(request.json)
+		return dumps(res)
+
+	elif (request.method == "GET"):
+		res = insetos.listInsetos()
+		return dumps(res)
+
+
+@application.route('/inseto/<idinseto>',  methods=['GET', 'DELETE', 'PUT', 'PATCH'])
+def getIdInseto(idinseto):
+    if (request.method == "GET"):
+        res = insetos.getInsetos(idinseto)
+        return dumps(res)
+
+    elif (request.method == 'DELETE'):
+        print(idinseto)
+        res = insetos.deleteInsetos(idinseto)
+        return dumps(res)
+
+    elif (request.method == 'PUT'):
+        res = insetos.uploadInsetos(idinseto,request.json)
+        return dumps(res)
+
+    elif (request.method == 'PATCH'):
+
+        res = insetos.addLoc(idinseto, request.json)
+        return dumps(res)
+
 
 
 """
