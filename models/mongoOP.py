@@ -45,7 +45,7 @@ class OpMongoDB():
                 }
             except:
                 response = {
-                    "error": True,
+                    "Error": True,
                     "Menssage": "Error no processamento do serviço!",
                     "Dica" : "Possivelmente esse email já existe"
                 }
@@ -68,7 +68,7 @@ class OpMongoDB():
                 }
             except:
                 response = {
-                    "error": True,
+                    "Error": True,
                     "Menssage": "Error ao processar servicço"
             	}
 
@@ -92,7 +92,7 @@ class OpMongoDB():
             }
         except:
             response = {
-                "error": True,
+                "Error": True,
                 "Menssage": "Error ao processar serviço"
             }
 
@@ -120,7 +120,7 @@ class OpMongoDB():
             }
         except:
             response = {
-                "error": True,
+                "Error": True,
                 "Menssage": "Error ao processar serviço",
             }
 
