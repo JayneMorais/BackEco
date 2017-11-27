@@ -5,7 +5,7 @@ from models import mongoOP
 
 bdhistorias = mongoOP.OpMongoDB('forestbd','historias')
 
-def createHistorias( dados):
+def createHistorias(dados):
     return bdhistorias.save(dados)
 
 def uploadHistorias(id,dados):

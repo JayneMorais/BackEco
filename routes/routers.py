@@ -231,9 +231,6 @@ def getIdHistory(idhistoria):
 
 
 
-
-
-
 """
 ----------------------------------------------------
                     ACTIVITIES
