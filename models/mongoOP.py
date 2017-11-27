@@ -90,7 +90,8 @@ class OpMongoDB():
                 "Menssage": "Arquivo atualizado com sucesso",
                 "data" : res
             }
-        except:
+        except Exception as exc:
+            print exc
             response = {
                 "Error": True,
                 "Menssage": "Error ao processar serviço"

@@ -26,6 +26,7 @@ from controllers import tree
 from controllers import user
 from controllers import insetos
 from controllers import fosseis
+from controllers import historias
 import json
 
 # Flask app
@@ -52,7 +53,7 @@ def ctrlTree():
 
 
 
-@application.route('/tree/<idtree>',  methods=['GET', 'DELETE', 'PUT', 'PATCH'])
+@application.route('/trees/<idtree>',  methods=['GET', 'DELETE', 'PUT', 'PATCH'])
 def getIdTree(idtree):
     if (request.method == "GET"):
         res = tree.getTree(idtree)
@@ -91,7 +92,7 @@ def ctrlFossil():
 
 
 
-@application.route('/fossil/<idfossil>',  methods=['GET', 'DELETE', 'PUT', 'PATCH'])
+@application.route('/fosseis/<idfossil>',  methods=['GET', 'DELETE', 'PUT', 'PATCH'])
 def getIdFossil(idfossil):
     if (request.method == "GET"):
         res = fosseis.getFosseis(idfossil)
@@ -128,7 +129,7 @@ def ctrlInseto():
 		return dumps(res)
 
 
-@application.route('/inseto/<idinseto>',  methods=['GET', 'DELETE', 'PUT', 'PATCH'])
+@application.route('/insetos/<idinseto>',  methods=['GET', 'DELETE', 'PUT', 'PATCH'])
 def getIdInseto(idinseto):
     if (request.method == "GET"):
         res = insetos.getInsetos(idinseto)
@@ -188,6 +189,48 @@ def getIdUser(iduser):
     elif (request.method == 'PATCH'):
         res = user.patchUser(iduser,request.json)
         return dumps(res)
+
+
+"""
+----------------------------------------------------
+                    HISTORIAs
+----------------------------------------------------
+"""
+
+@application.route("/historias", methods=['POST','GET'])
+# Função da rota indextree
+def ctrlHistorias():
+    if (request.method == 'POST'):
+        res = historias.createHistorias(request.json)
+        return dumps(res)
+
+    elif (request.method == 'GET'):
+        res = historias.listHistorias()
+        return dumps(res)
+
+@application.route('/historias/<idhistoria>',  methods=['GET', 'DELETE', 'PUT', 'PATCH'])
+def getIdHistory(idhistoria):
+
+    if (request.method == "GET"):
+        res = historias.getHistorias(idhistoria)
+        return dumps(res)
+
+    elif (request.method == 'DELETE'):
+        print(idhistoria)
+        res = historias.deleteHistorias(idhistoria)
+        return dumps(res)
+
+    elif (request.method == 'PUT'):
+        res = historias.uploadHistorias(idhistoria,request.json)
+        return dumps(res)
+
+    elif (request.method == 'PATCH'):
+        res = historias.patchHistorias(idhistoria,request.json)
+        return dumps(res)
+
+
+
+
 
 
 
