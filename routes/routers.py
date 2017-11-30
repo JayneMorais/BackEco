@@ -51,8 +51,6 @@ def ctrlTree():
         res = tree.listTrees()
         return dumps(res)
 
-
-
 @application.route('/trees/<idtree>',  methods=['GET', 'DELETE', 'PUT', 'PATCH'])
 def getIdTree(idtree):
     if (request.method == "GET"):
@@ -79,7 +77,6 @@ def getIdTree(idtree):
 					FOSSEIS
 ----------------------------------------------------
 """
-
 @application.route("/fosseis", methods=['POST', 'GET'])
 def ctrlFossil():
 	if (request.method == "POST"):
