@@ -20,4 +20,4 @@ $ python wsgi.py
 
 ### Commits
 
-Commit should be maked in **dev** brach, and must be created a **pull request**.
+Commit should be maked in **dev** branch, and must be created a **pull request**.
