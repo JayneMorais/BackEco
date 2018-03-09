@@ -17,3 +17,7 @@ $ pip install pip install -r requirements.txt
 ```sh
 $ python wsgi.py
 ```
+
+### Commits
+
+Commit should be maked in **dev** brach, and must be created a **pull request**.
